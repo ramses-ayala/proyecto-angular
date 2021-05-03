@@ -1,0 +1,53 @@
+
+<div class="center">
+    <main id="contenido-principal">
+        <section id="contenido">
+            <div id="articles">
+
+                <h2>Actualizar articulo</h2>
+
+                <form class="mid-form" #editArticleForm="ngForm" (ngSubmit)="update()">
+                    <div class="form-group">
+                        <label for="nombre">Titulo:</label>
+                        <input type="text" name="title" #titulo="ngModel" [(ngModel)]="datosArticle.title" id="nombre" required/>
+
+                        <small *ngIf="!titulo.valid && titulo.touched">
+                            Titulo no valido
+                        </small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contenido">Contenido:</label>
+                        <textarea name="content" #contenido="ngModel" [(ngModel)]="datosArticle.content" id="contenido" required></textarea>
+
+                        <small *ngIf="!contenido.valid && contenido.touched">
+                            Contenido no valido
+                        </small>
+                    </div>
+
+                    <div class="form-group">
+
+                        <div *ngIf="is_edit" class="image-thumb">
+                            <img src="{{url + 'get-image/' + datosArticle.image}}" alt="{{datosArticle.title}}" *ngIf="datosArticle.image"/>
+                            <img src="../../../assets/images/default.png"  alt="{{datosArticle.title}}" *ngIf="!datosArticle.image"/>
+                        </div>
+                        
+                        <angular-file-uploader
+                            [config]="afuConfig"
+                            (ApiResponse)="ImageUpload($event)">
+                        >
+                        </angular-file-uploader>
+                    </div>
+                    
+
+                    <div class="clearfix"></div>
+
+                <input type="submit" value="Actualizar" class="btn btn-success" [disabled]="editArticleForm.invalid">
+                </form>
+
+            </div>
+        </section>
+    </main>
+    <app-sidebar></app-sidebar>
+
+</div>

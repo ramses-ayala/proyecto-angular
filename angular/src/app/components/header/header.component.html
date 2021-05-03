@@ -1,0 +1,24 @@
+<header id="site-header">
+		
+    <div class="center">
+        <div id="logo">
+                <img src="assets/images/angular.svg" alt="IMAGEN"/>
+                <span id="brand">
+                    <strong>Master</strong>Angular
+                </span>
+        </div>
+        <div class="clearfix"></div>
+        <nav id="menu">
+            <ul>
+                <li><a [routerLink]="['/home']" [routerLinkActive]="['active']">Inicio</a></li>
+                <li><a [routerLink]="['/blog']" [routerLinkActive]="['active']">Blog</a></li>
+                <li><a [routerLink]="['/formulario']" [routerLinkActive]="['active']">Formulario</a></li>
+                <li><a [routerLink]="['/peliculas']" [routerLinkActive]="['active']">Peliculas</a></li>
+                <li><a [routerLink]="['/pagina-de-pruebas']" [routerLinkActive]="['active']">Pagina de pruebas</a></li>
+            </ul>
+        </nav>
+        
+        <!-- <div class="clearfix"></div> -->
+    </div>
+
+</header>

@@ -1,0 +1,28 @@
+<app-slider [name]="'PAGINA'" [size]="'small'"></app-slider>
+
+<div class="center">
+    <main id="contenido-principal">
+        <section id="contenido">
+            <div id="articles">
+                <p>pagina</p>
+                <div *ngIf="nombre && apellido; then hayParametros else noHayParametros"></div>
+
+                <ng-template #hayParametros>
+                    <h2>el primer dato por parametro es: {{nombre}} </h2>
+                    <h2>el segundo dato por parametro es: {{apellido}} </h2>
+                </ng-template>
+
+                <ng-template #noHayParametros>
+                    <h2>SE TIENEN QUE PASAR PARAMETROS POR LA URL</h2>
+                </ng-template>
+
+                <button (click)="redireccion()">IR AL FORMUARIO</button>
+
+            </div>
+        </section>
+    </main>
+    <app-sidebar></app-sidebar>
+</div>
+<!-- <div *ngIf="!nombre || !apellido">
+    <h2>SE TIENE QUE PASAR DOS PARAMETROS POR LA URL</h2>
+</div> -->

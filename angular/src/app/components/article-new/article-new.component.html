@@ -1,0 +1,48 @@
+
+<div class="center">
+    <main id="contenido-principal">
+        <section id="contenido">
+            <div id="articles">
+
+                <h2>Crear articulo</h2>
+
+                <form class="mid-form" #createArticleForm="ngForm" (ngSubmit)="send()">
+                    <div class="form-group">
+                        <label for="nombre">Titulo:</label>
+                        <input type="text" name="title" #titulo="ngModel" [(ngModel)]="article.titulo" id="nombre" required/>
+
+                        <small *ngIf="!titulo.valid && titulo.touched">
+                            Titulo no valido
+                        </small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contenido">Contenido:</label>
+                        <textarea name="content" #contenido="ngModel" [(ngModel)]="article.contenido" id="contenido" required></textarea>
+
+                        <small *ngIf="!contenido.valid && contenido.touched">
+                            Contenido no valido
+                        </small>
+                    </div>
+
+                    <div class="form-group">
+                        
+                        <angular-file-uploader
+                            [config]="afuConfig"
+                            (ApiResponse)="ImageUpload($event)">
+                        >
+                        </angular-file-uploader>
+                    </div>
+                    
+
+                    <div class="clearfix"></div>
+
+                <input type="submit" value="Crear" class="btn btn-success" [disabled]="createArticleForm.invalid">
+                </form>
+
+            </div>
+        </section>
+    </main>
+    <app-sidebar></app-sidebar>
+
+</div>

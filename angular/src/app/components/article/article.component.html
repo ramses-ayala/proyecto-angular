@@ -1,0 +1,41 @@
+<div class="center">
+    <main id="contenido-principal">
+        <section id="contenido">
+
+            <h2 class="subheader">Detalle Articulo</h2> 
+            
+            <article class="article-item article-detail" *ngIf="datosArticle">
+                
+                <h3>{{datosArticle.title}}</h3>
+
+                <div class="image-wrap">
+                    <img src="{{url + 'get-image/' + datosArticle.image}}" alt="{{datosArticle.title}}" *ngIf="datosArticle.image"/>
+                    <img src="../../../assets/images/default.png"  alt="{{datosArticle.title}}" *ngIf="!datosArticle.image"/>
+                </div>
+                
+                
+                <div class="fecha">
+                    <span class="date">{{datosArticle.date | amLocale: 'es' | amTimeAgo}}</span> 
+                </div>		
+                
+                <div>
+                    <p>
+                        {{datosArticle.content}}
+                    </p>
+                </div>
+
+                <div id="caja-botones">
+                    <p><a [routerLink]="['/blog/editar', datosArticle._id]" class="btn btn-warning">Editar</a></p>
+                    <p><a (click)="delete(datosArticle._id)" class="btn btn-danger">Borrar</a></p>
+                </div>
+
+                <div class="clearfix"></div>
+            </article>
+
+            
+            
+        </section>
+
+    </main>
+    <app-sidebar></app-sidebar>
+</div>

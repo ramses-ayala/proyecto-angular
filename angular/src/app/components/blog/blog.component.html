@@ -1,0 +1,22 @@
+<app-slider [name]="'PAGINA BLOG'" [size]="'small'"></app-slider>
+
+<div class="center">
+    <main id="contenido-principal">
+        <section id="contenido">
+
+            <h2 class="subheader">contenido</h2>
+
+            <app-articles [articles]="arregloArticles"></app-articles>  
+            
+            
+        </section>
+
+    </main>
+    <app-sidebar></app-sidebar>
+</div>
+                    <!-- <div *ngIf="arregloArticles">
+                        <div class="article-item" *ngFor="let art of arregloArticles"> 
+                            <h3>{{art.title}}</h3>
+                            
+                        </div>
+                    </div> -->
